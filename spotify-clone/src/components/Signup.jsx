@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DisplayHome from "./DisplayHome";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -33,10 +34,11 @@ const Signup = () => {
     }
 
     // Dummy signup success
-    navigate("/");
+    navigate("/displayhome");
   };
 
   return (
+    
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1e1e2f] to-[#121212] text-white px-4">
       <div className="bg-[#1e1e2f]/80 backdrop-blur-md p-8 rounded-2xl shadow-lg w-full max-w-md border border-gray-700">
         <h2 className="text-2xl font-bold mb-6 text-center">Create an Account</h2>

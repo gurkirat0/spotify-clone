@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom"; // Importing useNavigate hook to programmatically navigate between routes
 
 const AlbumItem = ({image, name, desc, id}) => {
