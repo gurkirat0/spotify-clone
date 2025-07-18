@@ -28,7 +28,7 @@ const Login = () => {
 
     setTimeout(() => {
       setShowModal(false);
-      navigate("/displayhome");
+      navigate("/");
     }, 2000);
   };
 

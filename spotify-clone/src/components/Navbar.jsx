@@ -14,7 +14,7 @@ const Navbar = () => {
             <img onClick={() => navigate(+1)} className="w-8 bg-black p-2 rounded-2xl cursor-pointer" src={assets.arrow_right} alt="" />
         </div>
         <div className="flex items-center gap-4">
-            <p onClick={() => navigate('/')} className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">Log In</p>
+            <p onClick={() => navigate('/login')} className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">Log In</p>
             <p onClick={() => navigate('/Signup')} className="bg-black py-1 px-3 rounded-2xl text-[15px] cursor-pointer">Sign Up</p>
             <p className="bg-purple-500 text-black w-7 h-7 rounded-full flex items-center justify-center">G</p>
         </div>

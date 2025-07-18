@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DisplayHome from "./DisplayHome";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -11,6 +10,7 @@ const Signup = () => {
     confirmPassword: "",
   });
   const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -33,16 +33,21 @@ const Signup = () => {
       return;
     }
 
-    // Dummy signup success
-    navigate("/displayhome");
+    // ✅ Dummy signup success
+    setShowModal(true);
+
+    setTimeout(() => {
+      setShowModal(false);
+      navigate("/");
+    }, 2000);
   };
 
   return (
-    
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1e1e2f] to-[#121212] text-white px-4">
       <div className="bg-[#1e1e2f]/80 backdrop-blur-md p-8 rounded-2xl shadow-lg w-full max-w-md border border-gray-700">
         <h2 className="text-2xl font-bold mb-6 text-center">Create an Account</h2>
         <form onSubmit={handleSignup} className="flex flex-col gap-5">
+          {/* Name */}
           <div className="flex flex-col gap-1">
             <label htmlFor="name" className="text-sm font-medium">Name</label>
             <input
@@ -56,6 +61,7 @@ const Signup = () => {
             />
           </div>
 
+          {/* Email */}
           <div className="flex flex-col gap-1">
             <label htmlFor="email" className="text-sm font-medium">Email</label>
             <input
@@ -69,6 +75,7 @@ const Signup = () => {
             />
           </div>
 
+          {/* Password */}
           <div className="flex flex-col gap-1">
             <label htmlFor="password" className="text-sm font-medium">Password</label>
             <input
@@ -83,6 +90,7 @@ const Signup = () => {
             />
           </div>
 
+          {/* Confirm Password */}
           <div className="flex flex-col gap-1">
             <label htmlFor="confirmPassword" className="text-sm font-medium">Confirm Password</label>
             <input
@@ -97,6 +105,7 @@ const Signup = () => {
           </div>
 
           {error && <p className="text-red-400 text-sm">{error}</p>}
+
           <button
             type="submit"
             className="bg-purple-600 hover:bg-purple-700 transition py-3 rounded font-semibold"
@@ -104,6 +113,7 @@ const Signup = () => {
             Sign Up
           </button>
         </form>
+
         <p className="text-center text-sm text-gray-400 mt-4">
           Already have an account?{" "}
           <span
@@ -114,6 +124,18 @@ const Signup = () => {
           </span>
         </p>
       </div>
+
+      {/* ✅ Success Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-[#222] text-white p-6 rounded-xl shadow-xl border border-purple-500 w-[300px] text-center">
+            <p className="text-lg font-semibold text-green-400 mb-2">
+              🎉 Account Created!
+            </p>
+            <p className="text-sm text-gray-300">Redirecting to home...</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
