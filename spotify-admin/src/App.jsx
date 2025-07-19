@@ -18,7 +18,7 @@ const App = () => {
         <Navbar />
         <div className="pt-8 pl-5 sm:pt-12 sm:pl-12">
           <Routes>
-            <Route path="/add-song" element={<AddSong />} />
+            <Route path="/" element={<AddSong />} />
             <Route path="/add-album" element={<AddAlbum />} />
             <Route path="/list-song" element={<ListSong />} />
             <Route path="/list-album" element={<ListAlbum />} />
